@@ -2,7 +2,8 @@ import random
 import math
 import matplotlib.pyplot as plt
 
-# isblock wala and uske uper ke saare funsions bs ye dikha ke kaatne ke lie h ki hm block ho raha ya nahi wo check kr rahe tum apne hisab se graph sahi le aana and ise bs dikh jayega ki ha ham check kr rahe ki hm blocked hai ki nahi check kr rahe
+
+# isblock wala and uske uper ke saare functions bs ye dikha ke kaatne ke lie h ki hm block ho raha ya nahi wo check kr rahe tum apne hisab se graph sahi le aana and ise bs dikh jayega ki ha ham check kr rahe ki hm blocked hai ki nahi check kr rahe
 
 # is bound ka error aa raha thoda reason hr ed ke lie 3d array banega naki 2d hrnce ise 3d access lena ek j ka for loop laga ke usi se 2nd consition bhi theek hogi
 def atED(eo,ed,ap):
@@ -90,7 +91,6 @@ def access_point(ro,ed,ap):
 
     ap.append(round(betaap,2))
 
-
 def latency(ro,ed,ap,cc):
     led = 1/ed[2] + ro/ed[3] + ro/ap[3]
     ed.append(round(led,2))
@@ -144,6 +144,8 @@ def recoveryTimeMini(ed,ap,cc):
     Tr = max(m1,cc[4])
     return Tr
 
+# def miniAtED(ed):
+
 
 if __name__ == "__main__":
 
@@ -152,7 +154,7 @@ if __name__ == "__main__":
     scc = 0.65
     ro = 0.1
     x = []
-    for i in range(1,421,30):
+    for i in range(1,481,60):
         x.append(i)
     # x = sorted(x)
     apx=[[],[],[],[]]
@@ -169,15 +171,11 @@ if __name__ == "__main__":
         ed.append(lambdaed)
         edge_devie(ro,ed)
         # ed  = [ s , lambda , theta , phi , Latency , T , t,ap]
-        # print("ED:- ",ed)
-        alled.append(ed)
 
         ap = []
         ap.append(sap)
         access_point(ro,ed,ap = ap)
         # ap = [s , lambda , theta , phi , beta , Latency , T , t ]
-        # print("AP:- ",ap)
-        allap.append(ap)
 
         cc = []
         cc.append(scc)
@@ -186,7 +184,6 @@ if __name__ == "__main__":
         cc.append(round(lambdacc,2))
         cc.append(round(lambdacc, 2))
         # cc = [s , lambda , theta , Latency , T ]
-        # print("CC:- ",cc)
 
         latency(ro,ed=ed , ap=ap , cc=cc)
         # print("ED:- ",ed)
@@ -216,18 +213,21 @@ if __name__ == "__main__":
     m = max(L)
     plt.title('System Latency vs Data Generation')
     plt.plot(x , L ,marker='*',markerfacecolor='red',linestyle='--',color='yellow',linewidth=2,markersize=10)
-    plt.axis([-2,430,3,m+2])
+    plt.axis([-2,500,3,m+2])
     plt.show()
+
+
     print("The Processing Time are:- ", Tprocess)
     m = max(Tprocess)
     plt.title('Processing Time vs Data Generation')
     plt.plot(x,Tprocess,marker='o',markerfacecolor='yellow',linestyle='-',color='blue',linewidth=1,markersize=5)
-    plt.axis([-2, 430, 5, m + 2])
+    plt.axis([-2, 500, 5, m + 2])
     plt.show()
+
     # if(isblock(ed,ap,cc)):
     print("The Recovery Time are:- ", T)
     m = max(T)
     plt.title('Recovery Time vs Data Generation')
     plt.plot(x, T, marker='o', markerfacecolor='magenta', linestyle='-', color='black', linewidth=1, markersize=5)
-    plt.axis([-2, 430, 0, m + 2])
+    plt.axis([-2, 500, 0, m + 2])
     plt.show()
