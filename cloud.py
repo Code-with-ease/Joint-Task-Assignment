@@ -77,6 +77,8 @@ def recoveryTimeMini(ed,ap,cc):
     Tr = max(m1,cc[4])
     return Tr
 
+# def miniAtED(ed):
+
 
 if __name__ == "__main__":
 
@@ -85,7 +87,7 @@ if __name__ == "__main__":
     scc = 0.65
     ro = 0.1
     x = []
-    for i in range(1,421,30):
+    for i in range(1,481,60):
         x.append(i)
     # x = sorted(x)
 
@@ -137,19 +139,20 @@ if __name__ == "__main__":
     m = max(L)
     plt.title('System Latency vs Data Generation')
     plt.plot(x , L ,marker='*',markerfacecolor='red',linestyle='--',color='yellow',linewidth=2,markersize=10)
-    plt.axis([-2,430,3,m+2])
+    plt.axis([-2,500,3,m+2])
     plt.show()
+
 
     print("The Processing Time are:- ", Tprocess)
     m = max(Tprocess)
     plt.title('Processing Time vs Data Generation')
     plt.plot(x,Tprocess,marker='o',markerfacecolor='yellow',linestyle='-',color='blue',linewidth=1,markersize=5)
-    plt.axis([-2, 430, 5, m + 2])
+    plt.axis([-2, 500, 5, m + 2])
     plt.show()
 
     print("The Recovery Time are:- ", T)
     m = max(T)
     plt.title('Recovery Time vs Data Generation')
     plt.plot(x, T, marker='o', markerfacecolor='magenta', linestyle='-', color='black', linewidth=1, markersize=5)
-    plt.axis([-2, 430, 0, m + 2])
+    plt.axis([-2, 500, 0, m + 2])
     plt.show()
