@@ -117,9 +117,6 @@ def CCLayerOptimization(ap,cc):
     else:
         return 0
 
-# def recoveryTimeMini(buff1,buff2,buff3):
-#     for i in range(len(buff1)):
-
 
 if __name__ == "__main__":
 
@@ -223,7 +220,7 @@ if __name__ == "__main__":
         else:
             print("The T (processing time) at CC should be same :- %.2f"%(cc[4]))
 
-
+    print("Latencies are:- ",L)
     m = max(L)
     plt.title('Graph 1 (Non-Blocking)')
     plt.xlabel("Data Generation")
@@ -232,7 +229,7 @@ if __name__ == "__main__":
     plt.axis([-2,500,3,m+2])
     plt.show()
 
-
+    print("Processing Time:- ",Tprocess)
     m = max(Tprocess)
     plt.title('Graph 2 (Blocking)')
     plt.xlabel("Data Generation")
@@ -241,7 +238,7 @@ if __name__ == "__main__":
     plt.axis([-2, 500, 5, m + 2])
     plt.show()
 
-
+    print("Recovery Time:- ",T)
     m = max(T)
     plt.title('Graph 3 (Blocking)')
     plt.xlabel("Data Generation")
