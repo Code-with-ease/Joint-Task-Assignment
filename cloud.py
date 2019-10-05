@@ -200,9 +200,14 @@ if __name__ == "__main__":
         time.sleep(0.7)
         print('\n\n ED LAYER OPTIMIZATION \n')
         a1,a2,a3 = EDLayerOptimization(ro,ed=ed)
-        print("The phi at ED should be:- %.2f"%(a1)," Instead of:- %.2f"%(ed[3]))
-        print("The phi at AP1 should be:- %.2f"%(a2), " Instead of:- %.2f"%(ap[3]))
-        print("The phi at AP2 should be:- %.2f"%(a3), " Instead of:- %.2f"%(ap[3]))
+        if(a1!=ed[3]):
+            print("The phi at ED should be:- %.2f"%(a1)," Instead of:- %.2f"%(ed[3]))
+        elif(ap[3]!=a2):
+            print("The phi at AP1 should be:- %.2f"%(a2), " Instead of:- %.2f"%(ap[3]))
+        elif(ap[3]!=a3):
+            print("The phi at AP2 should be:- %.2f"%(a3), " Instead of:- %.2f"%(ap[3]))
+        else:
+            print("Same")
 
         time.sleep(0.7)
         print('\n\n AP LAYER OPTIMIZATION\n')
